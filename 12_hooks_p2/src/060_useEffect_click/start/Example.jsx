@@ -2,6 +2,7 @@ import { useEffect, useState, useLayoutEffect } from "react";
 
 const Example = () => {
   const [isDisp, setIsDisp] = useState(true);
+  console.log(isDisp);
 
   return (
     <>
@@ -18,18 +19,19 @@ const Timer = () => {
   const [isRunning, setIsRunnning] = useState(false);
 
   useEffect(() => {
-    // console.log('init');
+    console.log("init");
     let intervalId = null;
     if (isRunning) {
+      console.log("timer start");
       intervalId = window.setInterval(() => {
-        // console.log('interval running');
+        console.log("interval running");
         setTime((prev) => prev + 1);
       }, 1000);
     }
 
     return () => {
       window.clearInterval(intervalId);
-      // console.log('end');
+      console.log("end");
     };
   }, [isRunning]);
 
